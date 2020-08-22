@@ -238,27 +238,38 @@ public class GenericItemShared extends GenericItem implements IItemTGRenderer, I
 		}
 		if(this.getBonus(TGArmorBonus.EXTRA_HEART, stack)>0.0f){
 			tooltip.add(trans("armorTooltip.healthbonus")+": +"+(int)this.getBonus(TGArmorBonus.EXTRA_HEART, stack)+" "+trans("armorTooltip.hearts"));
-		} else if (this.getBonus(TGArmorBonus.SPEED, stack)>0.0f){
-			tooltip.add(trans("armorTooltip.movespeed")+": +"+this.getBonus(TGArmorBonus.SPEED, stack)*100.0f+"%");
-		} else if(this.getBonus(TGArmorBonus.JUMP, stack)>0.0f){
-			tooltip.add(trans("armorTooltip.jumpheight")+": +"+this.getBonus(TGArmorBonus.JUMP, stack));
-		} if(this.getBonus(TGArmorBonus.FALLDMG, stack)>0.0f){
-			tooltip.add(trans("armorTooltip.falldamage")+": -"+this.getBonus(TGArmorBonus.FALLDMG, stack)*100.0f+"%");
-		} if(this.getBonus(TGArmorBonus.FREEHEIGHT, stack)>0.0f){
-			tooltip.add(trans("armorTooltip.fallheight")+": -"+this.getBonus(TGArmorBonus.FREEHEIGHT, stack));
-		} if(this.getBonus(TGArmorBonus.BREAKSPEED, stack)>0.0f){
-			tooltip.add(trans("armorTooltip.miningspeed")+": +"+this.getBonus(TGArmorBonus.BREAKSPEED, stack)*100.0f+"%");
-		} if(this.getBonus(TGArmorBonus.BREAKSPEED_WATER, stack)>0.0f){
-			tooltip.add(trans("armorTooltip.underwatermining")+": +"+this.getBonus(TGArmorBonus.BREAKSPEED_WATER, stack)*100.0f+"%");
-		} if(this.getBonus(TGArmorBonus.KNOCKBACK_RESISTANCE, stack)>0.0f){
-			tooltip.add(trans("armorTooltip.knockbackresistance")+": +"+this.getBonus(TGArmorBonus.KNOCKBACK_RESISTANCE, stack)*100.0f+"%");
-		} if(this.getBonus(TGArmorBonus.NIGHTVISION, stack)>0.0f){
+		} 
+		if (this.getBonus(TGArmorBonus.SPEED, stack)>0.0f){
+			tooltip.add(trans("armorTooltip.movespeed") + ": +" + String.format("%.1f", this.getBonus(TGArmorBonus.SPEED, stack)*100.0f) + "%");
+		} 
+		if(this.getBonus(TGArmorBonus.JUMP, stack)>0.0f){
+			tooltip.add(trans("armorTooltip.jumpheight") +": +" + this.getBonus(TGArmorBonus.JUMP, stack));
+		} 
+		if(this.getBonus(TGArmorBonus.FALLDMG, stack)>0.0f){
+			tooltip.add(trans("armorTooltip.falldamage") +": -" + String.format("%.1f", this.getBonus(TGArmorBonus.FALLDMG, stack)*100.0f) + "%");
+		} 
+		if(this.getBonus(TGArmorBonus.FREEHEIGHT, stack)>0.0f){
+			tooltip.add(trans("armorTooltip.fallheight") +": -"+this.getBonus(TGArmorBonus.FREEHEIGHT, stack));
+		} 
+		if(this.getBonus(TGArmorBonus.BREAKSPEED, stack)>0.0f){
+			tooltip.add(trans("armorTooltip.miningspeed") + ": +" + String.format("%.1f", this.getBonus(TGArmorBonus.BREAKSPEED, stack)*100.0f) + "%");
+		} 
+		if(this.getBonus(TGArmorBonus.BREAKSPEED_WATER, stack)>0.0f){
+			tooltip.add(trans("armorTooltip.underwatermining")+": +" + String.format("%.1f", this.getBonus(TGArmorBonus.BREAKSPEED_WATER, stack)*100.0f) + "%");
+		} 
+		if(this.getBonus(TGArmorBonus.KNOCKBACK_RESISTANCE, stack)>0.0f){
+			tooltip.add(trans("armorTooltip.knockbackresistance") + ": +" + String.format("%.1f", this.getBonus(TGArmorBonus.KNOCKBACK_RESISTANCE, stack)*100.0f) + "%");
+		} 
+		if(this.getBonus(TGArmorBonus.NIGHTVISION, stack)>0.0f){
 			tooltip.add(trans("armorTooltip.nightvision"));
-		} if(this.getBonus(TGArmorBonus.STEPASSIST, stack)>0.0f){
+		} 
+		if(this.getBonus(TGArmorBonus.STEPASSIST, stack)>0.0f){
 			tooltip.add(trans("armorTooltip.stepassist"));
-		} if(this.getBonus(TGArmorBonus.OXYGEN_GEAR, stack)>0.0f){
+		} 
+		if(this.getBonus(TGArmorBonus.OXYGEN_GEAR, stack)>0.0f){
 			tooltip.add(trans("armorTooltip.oxygengear"));
-		} if(this.getBonus(TGArmorBonus.COOLING_SYSTEM, stack)>0.0f){
+		} 
+		if(this.getBonus(TGArmorBonus.COOLING_SYSTEM, stack)>0.0f){
 			tooltip.add(trans("armorTooltip.coolingsystem"));
 		} 
 		if(stack.getItemDamage()==TGItems.OREDRILLHEAD_STEEL.getItemDamage() || stack.getItemDamage() == TGItems.OREDRILLHEAD_MEDIUM_STEEL.getItemDamage() || stack.getItemDamage() == TGItems.OREDRILLHEAD_LARGE_STEEL.getItemDamage()) {

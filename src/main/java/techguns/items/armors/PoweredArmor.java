@@ -326,7 +326,6 @@ public class PoweredArmor extends GenericArmorMultiCamo {
 		return 0;
 	}
 	
-	
 	/**
 	 * Called from tick handler to reduce durability
 	 */
@@ -361,30 +360,19 @@ public class PoweredArmor extends GenericArmorMultiCamo {
 	    			
     				if (powerChest.battery_empty!=null){
     					int amount = InventoryUtil.addAmmoToPlayerInventory(player, TGItems.newStack(powerChest.battery_empty, 1));
-    					if(amount >0 && !player.world.isRemote){
+    					if (amount > 0 && !player.world.isRemote){
     						player.world.spawnEntity(new EntityItem(player.world, player.posX, player.posY, player.posZ, TGItems.newStack(powerChest.battery_empty, amount)));
     					}
-    					
-    					//player.inventory.addItemStackToInventory(new ItemStack(powerChest.battery_empty.getItem(),1,powerChest.battery_empty.getItemDamage()));
     				}
     				
     				powerChest.setFullyPowered(chest); //chest.setItemDamage(0);
     				
     				powerSlots(player,power,chest,false);
-    				
-    				
-				} else {
-					
-					//can't reload
 				}
 			}
 		}
-		//
-
 	}
 
-	
-	
 	@Override
 	public void addInformation(ItemStack item, World worldIn, List<String> list, ITooltipFlag flagIn) {
 		

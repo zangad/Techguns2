@@ -436,34 +436,44 @@ public class GenericArmor extends ItemArmor implements ISpecialArmor , IItemTGRe
 			
 			if(this.getBonus(TGArmorBonus.EXTRA_HEART)>0.0f){
 				list.add(trans("armorTooltip.healthbonus")+": +"+(int)this.getBonus(TGArmorBonus.EXTRA_HEART)+" "+trans("armorTooltip.hearts"));
-			} else if (this.getBonus(TGArmorBonus.SPEED)>0.0f){
-				list.add(trans("armorTooltip.movespeed")+": +"+this.getBonus(TGArmorBonus.SPEED)*100.0f+"%");
-			} else if(this.getBonus(TGArmorBonus.JUMP)>0.0f){
-				list.add(trans("armorTooltip.jumpheight")+": +"+this.getBonus(TGArmorBonus.JUMP));
-			} if(this.getBonus(TGArmorBonus.FALLDMG)>0.0f){
-				list.add(trans("armorTooltip.falldamage")+": -"+this.getBonus(TGArmorBonus.FALLDMG)*100.0f+"%");
-			} if(this.getBonus(TGArmorBonus.FREEHEIGHT)>0.0f){
-				list.add(trans("armorTooltip.fallheight")+": -"+this.getBonus(TGArmorBonus.FREEHEIGHT));
-			} if(this.getBonus(TGArmorBonus.BREAKSPEED)>0.0f){
-				list.add(trans("armorTooltip.miningspeed")+": +"+this.getBonus(TGArmorBonus.BREAKSPEED)*100.0f+"%");
-			} if(this.getBonus(TGArmorBonus.BREAKSPEED_WATER)>0.0f){
-				list.add(trans("armorTooltip.underwatermining")+": +"+this.getBonus(TGArmorBonus.BREAKSPEED_WATER)*100.0f+"%");
-			} if(this.getBonus(TGArmorBonus.KNOCKBACK_RESISTANCE)>0.0f){
-				list.add(trans("armorTooltip.knockbackresistance")+": +"+this.getBonus(TGArmorBonus.KNOCKBACK_RESISTANCE)*100.0f+"%");
-			} if(this.getBonus(TGArmorBonus.NIGHTVISION)>0.0f){
+			}
+			if (this.getBonus(TGArmorBonus.SPEED)>0.0f){
+				list.add(trans("armorTooltip.movespeed") + ": +" + String.format("%.1f", this.getBonus(TGArmorBonus.SPEED)*100.0f) + "%");
+			} 
+			if(this.getBonus(TGArmorBonus.JUMP)>0.0f){
+				list.add(trans("armorTooltip.jumpheight") + ": +" + this.getBonus(TGArmorBonus.JUMP)*100.0f);
+			} 
+			if(this.getBonus(TGArmorBonus.FALLDMG)>0.0f){
+				list.add(trans("armorTooltip.falldamage")+": -" + String.format("%.1f", this.getBonus(TGArmorBonus.FALLDMG)*100.0f) + "%");
+			} 
+			if(this.getBonus(TGArmorBonus.FREEHEIGHT)>0.0f){
+				list.add(trans("armorTooltip.fallheight")+": -" + this.getBonus(TGArmorBonus.FREEHEIGHT));
+			} 
+			if(this.getBonus(TGArmorBonus.BREAKSPEED)>0.0f){
+				list.add(trans("armorTooltip.miningspeed") + ": +" + String.format("%.1f", this.getBonus(TGArmorBonus.BREAKSPEED)*100.0f) + "%");
+			} 
+			if(this.getBonus(TGArmorBonus.BREAKSPEED_WATER)>0.0f){
+				list.add(trans("armorTooltip.underwatermining") + ": +" + String.format("%.1f", this.getBonus(TGArmorBonus.BREAKSPEED_WATER)*100.0f) + "%");
+			} 
+			if(this.getBonus(TGArmorBonus.KNOCKBACK_RESISTANCE)>0.0f){
+				list.add(trans("armorTooltip.knockbackresistance") + ": +" + String.format("%.1f", this.getBonus(TGArmorBonus.KNOCKBACK_RESISTANCE)*100.0f) + "%");
+			} 
+			if(this.getBonus(TGArmorBonus.NIGHTVISION)>0.0f){
 				list.add(trans("armorTooltip.nightvision"));
-			} if(this.getBonus(TGArmorBonus.STEPASSIST)>0.0f){
+			} 
+			if(this.getBonus(TGArmorBonus.STEPASSIST)>0.0f){
 				list.add(trans("armorTooltip.stepassist"));
-			} if(this.getBonus(TGArmorBonus.OXYGEN_GEAR)>0.0f){
+			} 
+			if(this.getBonus(TGArmorBonus.OXYGEN_GEAR)>0.0f){
 				list.add(trans("armorTooltip.oxygengear"));
-			} if(this.getBonus(TGArmorBonus.COOLING_SYSTEM)>0.0f){
+			} 
+			if(this.getBonus(TGArmorBonus.COOLING_SYSTEM)>0.0f){
 				list.add(trans("armorTooltip.coolingsystem"));
 			}	
 		} else {
 			this.addMinimalInformation(item, list);
 			list.add(TextUtil.trans("techguns.gun.tooltip.shift1")+" "+ChatFormatting.GREEN+TextUtil.trans("techguns.gun.tooltip.shift2")+" "+ChatFormatting.GRAY+TextUtil.trans("techguns.gun.tooltip.shift3"));
 		}
-
 	}
 
 	/**

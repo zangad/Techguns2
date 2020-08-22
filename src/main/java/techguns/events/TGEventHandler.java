@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
-
+import net.minecraft.util.math.MathHelper;
 import elucent.albedo.event.GatherLightsEvent;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -385,13 +385,18 @@ public class TGEventHandler {
 	    if (event.getEntity() instanceof EntityPlayer)
 	    {
 	        EntityPlayer ply = (EntityPlayer) event.getEntity();
-	        float jumpbonus = GenericArmor.getArmorBonusForPlayer(ply, TGArmorBonus.JUMP,true);
+			float jumpbonus = GenericArmor.getArmorBonusForPlayer(ply, TGArmorBonus.JUMP,true);
 	        
-	        /*if (ply.onGround && ply.isSneaking()){
-	        	jumpbonus*=5;
-	        }*/
+	        if (!(ply.onGround && ply.isSneaking())){
+	        	jumpbonus=0;
+	        }
 	        
-	        ply.motionY+=jumpbonus;
+			//ply.motionY+=jumpbonus;
+			double motionX = (double)(-MathHelper.sin(ply.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(ply.rotationPitch / 180.0F * (float)Math.PI) * jumpbonus);
+			double motionZ = (double)(MathHelper.cos(ply.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(ply.rotationPitch / 180.0F * (float)Math.PI) * jumpbonus);
+			double motionY = (double)(-MathHelper.sin((ply.rotationPitch + 0F) / 180.0F * (float)Math.PI) * jumpbonus);
+
+			ply.addVelocity(motionX, motionY, motionZ);
 	    }  
 	}
 	
