@@ -280,11 +280,6 @@ public class RenderGunBase extends RenderItemBase {
 			if (!isOffhand && gun.isZooming() && this.scope!=null) {
 				renderScope = true;
 			} else {
-			
-				/*if (!isOffhand && gun.getZoomMult()>0f && gun.isZooming()) {
-					this.transformADS();
-				}*/
-				
 				this.transformFirstPerson(fireProgress, reloadProgress, chargeProgress, TransformType.FIRST_PERSON_LEFT_HAND == transform, sneaking&&isOffhand);
 			}
 
