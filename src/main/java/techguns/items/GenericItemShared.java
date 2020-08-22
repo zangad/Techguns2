@@ -243,7 +243,7 @@ public class GenericItemShared extends GenericItem implements IItemTGRenderer, I
 			tooltip.add(trans("armorTooltip.movespeed") + ": +" + String.format("%.1f", this.getBonus(TGArmorBonus.SPEED, stack)*100.0f) + "%");
 		} 
 		if(this.getBonus(TGArmorBonus.JUMP, stack)>0.0f){
-			tooltip.add(trans("armorTooltip.jumpheight") +": +" + this.getBonus(TGArmorBonus.JUMP, stack));
+			tooltip.add(trans("armorTooltip.jumpheight") +": +" + (int)(this.getBonus(TGArmorBonus.JUMP, stack)));
 		} 
 		if(this.getBonus(TGArmorBonus.FALLDMG, stack)>0.0f){
 			tooltip.add(trans("armorTooltip.falldamage") +": -" + String.format("%.1f", this.getBonus(TGArmorBonus.FALLDMG, stack)*100.0f) + "%");

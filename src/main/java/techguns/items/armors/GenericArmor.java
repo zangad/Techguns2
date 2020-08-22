@@ -441,7 +441,7 @@ public class GenericArmor extends ItemArmor implements ISpecialArmor , IItemTGRe
 				list.add(trans("armorTooltip.movespeed") + ": +" + String.format("%.1f", this.getBonus(TGArmorBonus.SPEED)*100.0f) + "%");
 			} 
 			if(this.getBonus(TGArmorBonus.JUMP)>0.0f){
-				list.add(trans("armorTooltip.jumpheight") + ": +" + this.getBonus(TGArmorBonus.JUMP)*100.0f);
+				list.add(trans("armorTooltip.jumpheight") + ": +" + (int)(this.getBonus(TGArmorBonus.JUMP)*100.0f));
 			} 
 			if(this.getBonus(TGArmorBonus.FALLDMG)>0.0f){
 				list.add(trans("armorTooltip.falldamage")+": -" + String.format("%.1f", this.getBonus(TGArmorBonus.FALLDMG)*100.0f) + "%");
