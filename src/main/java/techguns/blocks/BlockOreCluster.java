@@ -29,14 +29,14 @@ public class BlockOreCluster<T extends Enum<T> & IEnumOreClusterType> extends Ge
 	
 	public BlockOreCluster(String name, Material mat, Class<T> clazz) {
 		super(name, mat, clazz);
-		this.setBlockUnbreakable();
-		this.setResistance(6000000.0F);
+		//this.setBlockUnbreakable();
+		this.setResistance(6.0F);
 	}
 
 	public BlockOreCluster(String name, Material mat, MapColor mc, SoundType soundType, Class<T> clazz) {
 		super(name, mat, mc, soundType, clazz);
-		this.setBlockUnbreakable();
-		this.setResistance(6000000.0F);
+		//this.setBlockUnbreakable();
+		this.setResistance(6.0F);
 	}
 
 	@Override
