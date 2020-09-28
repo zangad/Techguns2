@@ -414,7 +414,6 @@ public class GenericArmor extends ItemArmor implements ISpecialArmor , IItemTGRe
 		list.add(ChatFormatting.YELLOW+" L: "+formatAV(this.material.getArmorValueSlot(slot, DamageType.LIGHTNING),DamageType.LIGHTNING));
 		list.add(ChatFormatting.DARK_GREEN+" P: "+formatAV(this.material.getArmorValueSlot(slot, DamageType.POISON),DamageType.POISON));
 		list.add(ChatFormatting.DARK_GRAY+" D: "+formatAV(this.material.getArmorValueSlot(slot, DamageType.DARK),DamageType.DARK));
-		list.add(ChatFormatting.GREEN+" RAD: "+formatAV(this.material.getArmorValueSlot(slot, DamageType.RADIATION),DamageType.RADIATION));		
 	}
 
 	@Override

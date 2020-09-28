@@ -171,8 +171,6 @@ public class GenericShield extends ItemShield implements ICamoChangeable {
 			list.add(ChatFormatting.YELLOW+" L: "+formatReduction.format(s.getReductionPercentAgainstType(DamageType.LIGHTNING))+"%");
 			list.add(ChatFormatting.DARK_GREEN+" P: "+formatReduction.format(s.getReductionPercentAgainstType(DamageType.POISON))+"%");
 			list.add(ChatFormatting.DARK_GRAY+" D: "+formatReduction.format(s.getReductionPercentAgainstType(DamageType.DARK))+"%");
-			list.add(ChatFormatting.GREEN+" RAD: "+formatReduction.format(s.getReductionPercentAgainstType(DamageType.RADIATION))+"%");	
-		
 		} else {
 			//this.addMinimalInformation(item, list);
 			list.add(TextUtil.trans("techguns.gun.tooltip.shift1")+" "+ChatFormatting.GREEN+TextUtil.trans("techguns.gun.tooltip.shift2")+" "+ChatFormatting.GRAY+TextUtil.trans("techguns.gun.tooltip.shift3"));
