@@ -417,10 +417,10 @@ public class TGTickHandler {
 								e.printStackTrace();
 							}
 							 
-							 if (!event.player.world.isRemote){
+							 //if (!event.player.world.isRemote){
 								 //event.player.world.playSoundAtEntity(event.player, SoundEvents.ENTITY_PLAYER_BURP, 1.0f, 1.0f);
-								 event.player.world.playSound(null, event.player.posX, event.player.posY, event.player.posZ, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.PLAYERS, 1f, 1f);
-							 }
+								 //event.player.world.playSound(null, event.player.posX, event.player.posY, event.player.posZ, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.PLAYERS, 1f, 1f);
+							 //}
 							 
 							 short left = (short) (food.getHealAmount(stack)-needed);
 							 if (left >0){
