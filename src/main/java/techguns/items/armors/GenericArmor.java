@@ -721,17 +721,13 @@ public class GenericArmor extends ItemArmor implements ISpecialArmor , IItemTGRe
 		}
 	}
 
-
 	@Override
 	public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot slot, ItemStack stack) {
 		Multimap<String, AttributeModifier> multimap = super.getAttributeModifiers(slot, stack);
 		
-		if(slot==this.armorType&&radresistance>0) {
-			multimap.put(TGRadiation.RADIATION_RESISTANCE.getName(), new AttributeModifier(RAD_RESIST_MODIFIER[slot.getIndex()],"techguns.radresistance."+slot.toString(), this.radresistance, 0));
-		}
+		//if(slot==this.armorType&&radresistance>0) {
+		//	multimap.put(TGRadiation.RADIATION_RESISTANCE.getName(), new AttributeModifier(RAD_RESIST_MODIFIER[slot.getIndex()],"techguns.radresistance."+slot.toString(), this.radresistance, 0));
+		//}
 		return multimap;
 	}
-	
-	
 }
-

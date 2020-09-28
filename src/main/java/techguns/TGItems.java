@@ -531,7 +531,7 @@ public class TGItems implements ITGInitializer{
 		/**
 		 * Additional Slot items
 		 */
-		GAS_MASK=new ItemGasMask("gasmask",1, 300).setRadresist(1f);
+		GAS_MASK=new ItemGasMask("gasmask",1, 300);
 		GLIDER = new ItemGlider("glider",1,-1);
 		JUMPPACK = new ItemJumpPack("jumppack",4, 1000);
 		SCUBA_TANKS = new ItemScubaTanks("scubatanks", 1, 600);

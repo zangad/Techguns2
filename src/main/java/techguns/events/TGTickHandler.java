@@ -441,18 +441,6 @@ public class TGTickHandler {
 			 }
 			 
 			 /**
-			  * Remove Additional Slot Attribute Modifiers
-			  */
-		      IAttributeInstance attributeRadresistance = event.player.getAttributeMap().getAttributeInstance(TGRadiation.RADIATION_RESISTANCE);
-	         if (attributeRadresistance!=null){
-	        	 AttributeModifier rad_resist_faceslot = attributeRadresistance.getModifier(ItemGasMask.UUID_RAD_RESIST_FACE);
-	        	 if (rad_resist_faceslot!=null){
-	        		 attributeRadresistance.removeModifier(rad_resist_faceslot);
-	        	 }
-	         }
-			 
-			 
-			 /**
 			  * Tick addition slots
 			  */
 			 props.isGliding=false;
