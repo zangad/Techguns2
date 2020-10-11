@@ -1,8 +1,6 @@
 package techguns.entities.npcs;
 
 import net.minecraft.entity.EnumCreatureAttribute;
-import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import techguns.capabilities.TGSpawnerNPCData;

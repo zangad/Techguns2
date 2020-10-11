@@ -14,7 +14,6 @@ import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.monster.AbstractSkeleton;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -87,7 +86,7 @@ public class GenericNPC extends EntityMob implements IRangedAttackMob, INPCTechg
 		protected GenericGun pickRandomGun(int difficulty) {
 			Random r = new Random();
 			GenericGun gun;
-			switch (r.nextInt(4)) {
+			switch (r.nextInt(5)) {
 				case 0:
 					gun = (GenericGun) TGuns.revolver;
 					break;
@@ -101,8 +100,10 @@ public class GenericNPC extends EntityMob implements IRangedAttackMob, INPCTechg
 					gun = (GenericGun) TGuns.grimreaper;
 					break;
 				case 4:
-				default:
 					gun = (GenericGun) TGuns.handcannon;
+					break;
+				default:
+					gun = (GenericGun) TGuns.revolver;
 			}
 			return gun;
 		}
@@ -149,7 +150,7 @@ public class GenericNPC extends EntityMob implements IRangedAttackMob, INPCTechg
 	        	ItemStack it = this.getRandomItemFromLoottable();
 	        	if (it !=null){
 	        		//this.dropItem(it.getItem(),it.stackSize,it.getItemDamage());
-	        		this.entityDropItem(TGItems.newStack(it, it.getCount()), 0.0f);
+					this.entityDropItem(TGItems.newStack(it, it.getCount()), 0.0f);
 	        	}
 	        }
 	    }
@@ -170,8 +171,7 @@ public class GenericNPC extends EntityMob implements IRangedAttackMob, INPCTechg
 	        this.setEquipmentBasedOnDifficulty(difficulty);
 	       // this.setEnchantmentBasedOnDifficulty(difficulty);
 	        this.setCombatTask();
-	    //    this.setCanPickUpLoot(this.rand.nextFloat() < 0.55F * difficulty.getClampedAdditionalDifficulty());
-	        this.setCanPickUpLoot(false);
+			this.setCanPickUpLoot(false);
 	        
 	        return livingdata;
 	    }
@@ -194,28 +194,12 @@ public class GenericNPC extends EntityMob implements IRangedAttackMob, INPCTechg
 	        this.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(TGArmors.t1_combat_Boots));
 	        
 	    }
-	    
-	    
-	  /*  @Override
-	    public IEntityLivingData onSpawnWithEgg(IEntityLivingData p_110161_1_)
-	    {
-	        p_110161_1_ = super.onSpawnWithEgg(p_110161_1_);
-
-            //this.tasks.addTask(4, this.aiRangedAttack);
-            //this.addRandomArmor();
-            //this.enchantEquipment();
-            //this.setCombatTask();
-	        this.onSpawnByManager(this.rand.nextInt(TGEntities.MAX_NPC_DIFFICULTY+1));
-	        
-	        return p_110161_1_;
-	    }*/
 
 	    public void onSpawnByManager(int difficulty) {
 	        this.setCanPickUpLoot(false);	
 	    	this.addRandomArmor(difficulty);
 	    	this.setCombatTask();
 	    }
-	    
 	    
 	    /**
 	     * sets this entity's combat AI.
@@ -274,11 +258,8 @@ public class GenericNPC extends EntityMob implements IRangedAttackMob, INPCTechg
 	    			
 	    			((GenericGun) gun).fireWeaponFromNPC(this,dmg,acc);
 	    		}
-		
 	    	}
-	    	
 	    }
-
 
 	    /**
 	     * (abstract) Protected helper method to read subclass entity data from NBT.

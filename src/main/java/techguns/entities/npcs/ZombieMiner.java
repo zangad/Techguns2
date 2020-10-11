@@ -15,9 +15,11 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import techguns.TGArmors;
+import techguns.TGItems;
 import techguns.TGuns;
 import techguns.Techguns;
 import techguns.items.armors.GenericArmorMultiCamo;
+import techguns.items.tools.TGSword;
 
 public class ZombieMiner extends GenericNPCUndead {
 	public static final ResourceLocation LOOT = new ResourceLocation(Techguns.MODID, "entities/zombieminer");
@@ -60,14 +62,28 @@ public class ZombieMiner extends GenericNPCUndead {
 		// Weapons
 		Random r = new Random();
 		Item weapon = null;
-		switch (r.nextInt(3)) {
+		switch (r.nextInt(7)) {
 		case 0:
 			weapon = Items.STONE_PICKAXE;
 			break;
 		case 1:
 			weapon = Items.IRON_PICKAXE;
 			break;
+		case 2:
+			weapon = TGuns.revolver;
+			break;
 		case 3:
+			weapon = TGuns.sawedoff;
+			break;
+		case 4: 
+			weapon = Items.IRON_HOE;
+			break;
+		case 5:
+			weapon = TGuns.handcannon;
+			break;
+		case 6:
+			weapon = Items.STONE_SHOVEL;
+			break;
 		default:
 			weapon = TGuns.handcannon;
 			break;

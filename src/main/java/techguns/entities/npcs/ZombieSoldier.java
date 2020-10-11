@@ -15,6 +15,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import techguns.TGArmors;
+import techguns.TGItems;
 import techguns.TGuns;
 import techguns.Techguns;
 
@@ -53,7 +54,8 @@ public class ZombieSoldier extends GenericNPCUndead {
 		// Weapons
 		Random r = new Random();
 		Item weapon = null;
-		switch (r.nextInt(4)) {
+		Item shield = null;
+		switch (r.nextInt(8)) {
 		case 0:
 			weapon = TGuns.revolver;
 			break;
@@ -61,14 +63,30 @@ public class ZombieSoldier extends GenericNPCUndead {
 			weapon = TGuns.thompson;
 			break;
 		case 2:
-			weapon = Items.IRON_SHOVEL;
+			weapon = TGuns.sawedoff;
 			break;
 		case 3:
+			weapon = Items.IRON_SHOVEL;
+			break;
+		case 4:
+			weapon = TGItems.COMBAT_KNIFE;
+			break;
+		case 5: 
+			weapon = TGuns.handcannon;
+			break;
+		case 6:
+			weapon = TGuns.pistol;
+			break;
+		case 7:
+			weapon = TGuns.pistol;
+			shield = TGArmors.riot_shield;
+			break;
 		default:
 			weapon = Items.STONE_SHOVEL;
 			break;
 		}
 		if (weapon != null) this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapon));
+		if (shield != null) this.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, new ItemStack(shield));
 	}
 
 	@Override
@@ -105,48 +123,4 @@ public class ZombieSoldier extends GenericNPCUndead {
 	protected boolean shouldBurnInDay() {
 		return false;
 	}
-	
-	/*@Override
-	protected ItemStack getRandomItemFromLoottable() {
-		if (TGConfig.reducedLoottables){
-			return this.reducedLoottable();
-		}
-		
-		int x = this.rand.nextInt(5);
-		float y = this.rand.nextFloat();
-		switch (x){
-			case 0:
-				return TGItems.newStack(TGItems.heavyCloth, 1);
-			case 1:
-				return new ItemStack(Items.iron_ingot,1);
-			case 2:
-				return new ItemStack(Items.gunpowder,1);
-			case 3:
-				return TGItems.newStack(TGItems.shotgunShell,1+Math.round(7*y));
-			case 4:
-				return TGItems.newStack(TGItems.bullets9mm,1+Math.round(2*y));
-		}
-		return null;
-	}
-
-	protected ItemStack reducedLoottable(){
-		int x = this.rand.nextInt(11);
-		float y = this.rand.nextFloat();
-		switch (x){
-			case 0:
-				return TGItems.newStack(TGItems.heavyCloth, 1);
-			case 1:
-				return new ItemStack(Items.gunpowder,1);
-			case 3:
-			case 4:
-				return new ItemStack(Items.rotten_flesh,1);
-			case 5:
-				return TGItems.newStack(TGItems.shotgunShell,1+Math.round(7*y));
-			case 6:
-				return TGItems.newStack(TGItems.bullets9mm,1+Math.round(2*y));
-			default:
-				return null;
-		}
-		//return null;
-	}*/
 }

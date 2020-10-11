@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import techguns.TGArmors;
+import techguns.TGItems;
 import techguns.TGuns;
 import techguns.Techguns;
 
@@ -47,7 +48,7 @@ public class Bandit extends GenericNPC {
 		// Weapons
 		Random r = new Random();
 		Item weapon = null;
-		switch (r.nextInt(6)) {
+		switch (r.nextInt(11)) {
 		case 0:
 			weapon = TGuns.pistol;
 			break;
@@ -62,6 +63,20 @@ public class Bandit extends GenericNPC {
 			break;
 		case 4:
 			weapon = TGuns.revolver;
+			break;
+		case 5:
+		case 6:
+			weapon = TGuns.handcannon;
+			break;
+		case 7:
+			weapon = TGuns.boltaction;
+			break;
+		case 8:
+		case 9:
+			weapon = TGItems.COMBAT_KNIFE;
+			break;
+		case 10:
+			weapon = TGItems.CROWBAR;
 			break;
 		default:
 			weapon = TGuns.boltaction;

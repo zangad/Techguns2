@@ -190,7 +190,6 @@ public class GenericGun extends GenericItem implements IGenericGun, IItemTGRende
 		super(name,false);
 		this.setMaxStackSize(1);
 		this.setNoRepair();
-		//TGuns.ITEMREGISTRY.register(this);
 	}
 
 	public GenericGun(String name, ProjectileSelector projectileSelector, boolean semiAuto, int minFiretime, int clipsize, int reloadtime, float damage, SoundEvent firesound, SoundEvent reloadsound, int TTL, float accuracy){
@@ -259,7 +258,6 @@ public class GenericGun extends GenericItem implements IGenericGun, IItemTGRende
 		this.reloadsound = reloadsound;
 
 		this.ammoCount=1;
-		//this.shotsPerBullet=clipsize;
 		this.ticksToLive=TTL;
 		this.accuracy =accuracy;
 		
@@ -282,7 +280,6 @@ public class GenericGun extends GenericItem implements IGenericGun, IItemTGRende
 	
 	public GenericGun setAmmoCount(int count) {
 		this.ammoCount=count;
-		//this.shotsPerBullet=(this.clipsize*1.0f)/(this.ammoCount*1.0f);
 		return this;
 	}
 
@@ -417,19 +414,6 @@ public class GenericGun extends GenericItem implements IGenericGun, IItemTGRende
 
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
-		/*if(this.getGunHandType() == GunHandType.TWO_HANDED) {
-			if (this.canClickBlock(worldIn, playerIn, handIn)) {
-				System.out.println("PASS!");
-				return new ActionResult<ItemStack>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
-			} else {
-				return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
-			}
-		} else {
-			return new ActionResult<ItemStack>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
-		}*/
-		/*if (this.gunSecondaryAction(playerIn, playerIn.getHeldItem(handIn))) {
-			return new ActionResult<ItemStack>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
-		}*/
 		this.gunSecondaryAction(playerIn, playerIn.getHeldItem(handIn));
 		return new ActionResult<ItemStack>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
 	}
@@ -469,8 +453,6 @@ public class GenericGun extends GenericItem implements IGenericGun, IItemTGRende
 	}
 
 	protected void spawnProjectile(final World world, final EntityLivingBase player, final ItemStack itemstack, float spread, float offset, float damagebonus, EnumBulletFirePos firePos, Entity target) {
-		/*GenericProjectile proj = new GenericProjectile(world, player, damage * damagebonus, speed, this.getScaledTTL(), spread, this.damageDropStart, this.damageDropEnd,
-				this.damageMin * damagebonus, this.penetration, getDoBlockDamage(player), leftGun);*/
 		
 		IProjectileFactory<GenericProjectile> projectile = this.projectile_selector.getFactoryForType(this.getCurrentAmmoVariantKey(itemstack));
 		
@@ -1428,7 +1410,6 @@ public class GenericGun extends GenericItem implements IGenericGun, IItemTGRende
     	
     	SoundUtil.playSoundOnEntityGunPosition(shooter.world, shooter ,firesound, SOUND_DISTANCE, 1.0F, false, false, TGSoundCategory.GUN_FIRE);
     	
-    	
     	EnumBulletFirePos firePos = EnumBulletFirePos.RIGHT;
     	
     	if (shooter instanceof NPCTurret){
@@ -1436,34 +1417,10 @@ public class GenericGun extends GenericItem implements IGenericGun, IItemTGRende
     		//accscale=1.0f;
     		firePos=EnumBulletFirePos.CENTER;
     	}
-    	/*} else {
-	    	
-	    	/*EnumDifficulty difficulty = shooter.world.getDifficulty();
-	    	
-	    	switch(difficulty){
-	    		case EASY:
-	    			dmg=0.5f;
-	    			acc=1.3f;
-	    			break;
-	    		case NORMAL:
-	    			dmg = 0.6f;
-	    			acc = 1.15f;
-	    			break;
-	    		case HARD:
-	    			dmg = 0.75f;
-	    			acc = 1.0f;
-	    			break;
-	    		case PEACEFUL:
-	    			dmg = 0.0f;
-	    			acc = 1.3f;
-	    			break;
-	    	}*/
-    	//}
     	
     	if (!shooter.world.isRemote){
     		this.shootGun(shooter.world, shooter, shooter.getHeldItemMainhand(), this.zoombonus*accscale,dmgscale,0, EnumHand.MAIN_HAND, firePos, null);
     	}
-
     }
     
     /**
@@ -1500,7 +1457,6 @@ public class GenericGun extends GenericItem implements IGenericGun, IItemTGRende
     			}
     		}
     	}
-
     	return items;
     }
     

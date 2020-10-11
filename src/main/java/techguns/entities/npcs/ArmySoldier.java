@@ -14,6 +14,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import techguns.TGArmors;
+import techguns.TGItems;
 import techguns.TGuns;
 import techguns.Techguns;
 
@@ -56,12 +57,30 @@ public class ArmySoldier extends GenericNPC {
 		// Weapons
 		Random r = new Random();
 		Item weapon = null;
-		switch (r.nextInt(3)) {
+		switch (r.nextInt(8)) {
 		case 0:
 			weapon = TGuns.m4;
 			break;
 		case 1:
 			weapon = TGuns.combatshotgun;
+			break;
+		case 2:
+			weapon = TGuns.vector;
+			break;
+		case 3:
+			weapon = TGuns.boltaction;
+			break;
+		case 4:
+			weapon = TGuns.pistol;
+			break;
+		case 5:
+			weapon = TGItems.COMBAT_KNIFE;
+			break;
+		case 6:
+			weapon = TGuns.mac10;
+			break;
+		case 7:
+			weapon = TGuns.sawedoff;
 			break;
 		default:
 			weapon = TGuns.boltaction;

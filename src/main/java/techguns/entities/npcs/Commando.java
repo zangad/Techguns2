@@ -14,6 +14,7 @@ import net.minecraft.world.World;
 import techguns.TGArmors;
 import techguns.TGuns;
 import techguns.Techguns;
+import java.util.Random;
 
 public class Commando extends GenericNPC {
 
@@ -43,9 +44,31 @@ public class Commando extends GenericNPC {
 	    this.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(TGArmors.t2_commando_Boots));
 
 		// Weapons
-		Item weapon = TGuns.m4_infiltrator;
-		
+		Random r = new Random();
+		Item weapon = null;
+		Item shield = null;
+		switch (r.nextInt(5)) {
+		case 0:
+			weapon = TGuns.m4_infiltrator;
+			break;
+		case 1:
+			weapon = TGuns.vector;
+			break;
+		case 2:
+			weapon = TGuns.m4;
+			break;
+		case 3:
+			weapon = TGuns.combatshotgun;
+			break;
+		case 4:
+			weapon = TGuns.pistol;
+			shield = TGArmors.riot_shield;
+			break;
+		default:
+			weapon = TGuns.m4;
+		}
 		if (weapon != null) this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapon));
+		if (shield != null) this.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, new ItemStack(shield));
 	}
 	
 	@Override

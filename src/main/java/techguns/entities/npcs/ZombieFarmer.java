@@ -57,7 +57,7 @@ public class ZombieFarmer extends GenericNPCUndead {
 		// Weapons
 		Random r = new Random();
 		Item weapon = null;
-		switch (r.nextInt(4)) {
+		switch (r.nextInt(7)) {
 		case 0:
 			weapon = Items.WOODEN_HOE;
 			break;
@@ -68,6 +68,17 @@ public class ZombieFarmer extends GenericNPCUndead {
 			weapon = Items.STONE_HOE;
 			break;
 		case 3:
+			weapon = Items.STONE_PICKAXE;
+			break;
+		case 4:
+			weapon = TGuns.handcannon;
+			break;
+		case 5:
+			weapon = TGuns.revolver;
+			break;
+		case 6:
+			weapon = TGuns.sawedoff;
+			break;
 		default:
 			weapon = TGuns.handcannon;
 			break;

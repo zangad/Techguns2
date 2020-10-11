@@ -15,6 +15,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import techguns.TGArmors;
+import techguns.TGItems;
 import techguns.TGuns;
 import techguns.Techguns;
 
@@ -37,8 +38,6 @@ public class SkeletonSoldier extends GenericNPCUndead {
 		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(50.0D);
 	}
 
-	
-	
 	@Override
 	public float getWeaponPosX() {
 		return -0.06f;
@@ -69,21 +68,39 @@ public class SkeletonSoldier extends GenericNPCUndead {
 		// Weapons
 		Random r = new Random();
 		Item weapon = null;
-		switch (r.nextInt(3)) {
+		Item shield = null;
+		switch (r.nextInt(8)) {
 		case 0:
-			weapon = TGuns.revolver;
+			weapon = TGuns.handcannon;
 			break;
 		case 1:
 			weapon = TGuns.thompson;
 			break;
 		case 2:
-			weapon = TGuns.handcannon;
+			weapon = TGuns.revolver;
+			break;
+		case 3:
+			weapon = TGuns.sawedoff;
+			break;
+		case 4:
+			weapon = TGItems.COMBAT_KNIFE;
+			break;
+		case 5:
+			weapon = TGItems.CROWBAR;
+			break;
+		case 6:
+			weapon = TGuns.pistol;
+			break;
+		case 7:
+			weapon = TGuns.pistol;
+			shield = TGArmors.riot_shield;
 			break;
 		default:
 			weapon = Items.STONE_SHOVEL;
 			break;
 		}
 		if (weapon != null) this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapon));
+		if (shield != null) this.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, new ItemStack(shield));
 	}
 	
 	@Override

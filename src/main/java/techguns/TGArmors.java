@@ -263,9 +263,9 @@ public class TGArmors implements ITGInitializer {
 		String[] t2_beret_textures = {"beret_texture", "beret_texture_black", "beret_texture_green"};
 		t2_beret = new GenericArmorMultiCamo("t2_beret", T2_BERET, t2_beret_textures, EntityEquipmentSlot.HEAD).setSpeedBoni(0.0f,0.0f).setRepairMats(TGItems.HEAVY_CLOTH, TGItems.HEAVY_CLOTH, 1.0f, 2).setArmorModel(TGArmors.ARMORMODEL_BERET_0,false); //0 for helmet
 
-		riot_shield = new GenericShield("riot_shield",300,4).setRepairMat(new ItemStackOreDict("ingotSteel",3));
-		ballistic_shield = new GenericShield("ballistic_shield",600,4).setRepairMat(new ItemStackOreDict("plateObsidianSteel",3));
-		advanced_shield = new GenericShield("advanced_shield",800,3).setRepairMat(new ItemStackOreDict("plateCarbon",3));
+		riot_shield = new GenericShield("riot_shield",400,4).setRepairMat(new ItemStackOreDict("plateSteel",3));
+		ballistic_shield = new GenericShield("ballistic_shield",800,4).setRepairMat(new ItemStackOreDict("plateObsidianSteel",3));
+		advanced_shield = new GenericShield("advanced_shield",1200,3).setRepairMat(new ItemStackOreDict("plateCarbon",3));
 		
 		if(TGItems.WRITE_ITEM_JSON && event.getSide()==Side.CLIENT){
 			armors.forEach(a -> ItemJsonCreator.writeItemJsonFileForPath("models/item/", a.getRegistryName().getResourcePath(),a.getRegistryName().getResourcePath()));

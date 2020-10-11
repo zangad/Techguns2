@@ -30,12 +30,6 @@ public class EntityAIRangedAttack extends EntityAIBase
     private int maxBurstCount; //Total number of shots in burst.
     private int burstCount; //shots left in current burst.
     private int shotDelay; //delay between shots in burst.
-    
-
-//    public EntityAIRangedAttack(IRangedAttackMob p_i1649_1_, double p_i1649_2_, int p_i1649_4_, float p_i1649_5_)
-//    {
-//        this(p_i1649_1_, p_i1649_2_, p_i1649_4_, p_i1649_4_, p_i1649_5_);
-//    }
 
     public EntityAIRangedAttack(IRangedAttackMob shooter, double moveSpeed, int attackTimeVariance, int attackTime, float attackRange, int maxBurstCount, int shotDelay)
     {

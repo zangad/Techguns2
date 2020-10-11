@@ -471,26 +471,6 @@ public class TGTickHandler {
 				 }
 			 }
 			 
-			 
-			 //TICK Radiation
-			 if(event.side==Side.SERVER && event.player.world.getTotalWorldTime()%20==0) {
-				 if(props.radlevel>=TGRadiationSystem.MINOR_POISONING && props.radlevel < TGRadiationSystem.SEVERE_POISONING ) {
-					 event.player.addPotionEffect(new PotionEffect(MobEffects.HUNGER,30,0,false,false));	
-					 
-				} else if (props.radlevel>=TGRadiationSystem.SEVERE_POISONING) {
-					event.player.addPotionEffect(new PotionEffect(MobEffects.HUNGER,30,1,false,false));
-					event.player.addPotionEffect(new PotionEffect(MobEffects.MINING_FATIGUE,30,1,false,false));
-					event.player.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS,30,1,false,false));
-				} 
-				 
-				if(props.radlevel>=TGRadiationSystem.LETHAL_POISONING) {
-					event.player.addPotionEffect(new PotionEffect(MobEffects.NAUSEA,30,1,false,false));
-					event.player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS,30,1,false,false));
-					event.player.attackEntityFrom(TGDamageSource.causeLethalRadPoisoningDamage(null, null, DeathType.LASER), 2f);
-				}
-			 }
-
-			 
 			 /**
 			  * detect weapon swaps
 			  */
@@ -515,21 +495,6 @@ public class TGTickHandler {
 				 props.gunMainHand=gunMH;
 				 props.gunOffHand=gunOH;
 			 }
-			 
-//TODO: Remove this
-//			 if (props.isChargingWeapon() && (event.player.getItemInUseCount() <= 0)) { //  || !(event.player.getHeldItemMainhand().getItem() instanceof GenericGunCharge)) {		
-//				 if (event.player.getHeldItemMainhand().getItem() instanceof GenericGunCharge) {
-//					 GenericGunCharge gun = (GenericGunCharge)event.player.getHeldItemMainhand().getItem();
-//					 if (gun.canFireWhileCharging && gun.getAmmoLeft(event.player.getHeldItemMainhand()) > 0) {
-//						 //System.out.println("Keep Lock!");
-//					 }else {
-//							props.lockOnEntity = null;
-//							props.lockOnTicks = 0;
-//					 }
-//				 }
-//				//if (((GenericGunCharge)event.player.getHeldItemMainhand().getItem()).getLockOnTicks() > 0) {
-//				//}
-//			 }
 			
 			 /*
 			  * Charging weapon

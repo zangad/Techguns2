@@ -55,18 +55,31 @@ public class ZombiePoliceman extends GenericNPCUndead {
 		// Weapons
 		Random r = new Random();
 		Item weapon = null;
-		switch (r.nextInt(2)) {
+		Item shield = null;
+		switch (r.nextInt(5)) {
 		case 0:
 			weapon = TGuns.revolver;
 			break;
 		case 1:
 			weapon = TGuns.pistol;
 			break;
+		case 2:
+			weapon = TGuns.sawedoff;
+			break;
+		case 3:
+			weapon = TGuns.pistol;
+			shield = TGArmors.riot_shield;
+			break;
+		case 4:
+			weapon = TGuns.revolver;
+			shield = TGArmors.riot_shield;
+			break;
 		default:
 			weapon = TGuns.revolver;
 			break;
 		}
 		if (weapon != null) this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(weapon));
+		if (shield != null) this.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, new ItemStack(shield));
 	}
 
 	@Override
